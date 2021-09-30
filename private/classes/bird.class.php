@@ -30,7 +30,6 @@ class Bird {
   public function conservation_level() {
     return self::CONSVERATION_LEVELS[$this->conservation_id];
   }
-
 }
 
 ?>

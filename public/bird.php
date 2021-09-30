@@ -4,12 +4,9 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="main">
-
   <div id="page">
     <div class="intro">
-      <img class="inset" src="<?php echo url_for('/images/tufted-titmouse.jpg') ?>" />
-      <h2>WNC Birds</h2>
-      <p>Small Sampling of WNC Birds</p>
+      <h1>Small Sampling of WNC Birds</h1>
     </div>
 
     <table id="inventory">
@@ -46,7 +43,6 @@
 
     </table>
   </div>
-
 </div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

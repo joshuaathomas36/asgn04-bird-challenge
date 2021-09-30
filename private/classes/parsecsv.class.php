@@ -2,11 +2,11 @@
 
 class ParseCSV {
 
-  public static $delimiter = '|';
-  public $filename;
-  public $header;
-  public $data = [];
-  public $row_count = 0;
+  private static $delimiter = '|';
+  private $filename;
+  private $header;
+  private $data = [];
+  private $row_count = 0;
   
   public function __construct($filename='') {
     if($filename != '') {
@@ -38,6 +38,7 @@ class ParseCSV {
     while(!feof($file)) {
       $row = fgetcsv($file, 0, self::$delimiter);
       if($row == [NULL] || $row === FALSE) { continue; }
+
       if(!$this->header) {
         $this->header = $row;
       } else {
