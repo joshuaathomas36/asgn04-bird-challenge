@@ -28,21 +28,21 @@
       include(PRIVATE_PATH . '/classes/parsecsv.class.php');
 
       $parser = new ParseCSV(PRIVATE_PATH . '/wnc-birds.csv');
-
-      // $args = ['common_name' => 'you like jazz?', 'habitat' => 'habitat', 'food' => 'food', 'nest_palcement' => 'nest palcement', 'behavior' => 'behavior', 'conservation_id' => 4, 'backyard_tips' => 'backyard tips'];
-      $birds = new Bird($args);
-
+      $bird_array = $parser->parse();
       ?>
 
+      <?php foreach($bird_array as $args) { ?>
+        <?php $birds = new Bird($args); ?>
       <tr>
-        <td><?php echo h($birds->common_name) ?></td>
-        <td><?php echo h($birds->habitat) ?></td>
-        <td><?php echo h($birds->food) ?></td>
-        <td><?php echo h($birds->nest_palcement) ?></td>
-        <td><?php echo h($birds->behavior) ?></td>
-        <td><?php echo h($birds->conservation_level()) ?></td>
-        <td><?php echo h($birds->backyard_tips) ?></td>
+        <td><?php echo h($birds->common_name); ?></td>
+        <td><?php echo h($birds->habitat); ?></td>
+        <td><?php echo h($birds->food); ?></td>
+        <td><?php echo h($birds->nest_palcement); ?></td>
+        <td><?php echo h($birds->behavior); ?></td>
+        <td><?php echo h($birds->conservation_level()); ?></td>
+        <td><?php echo h($birds->backyard_tips); ?></td>
       </tr>
+      <?php } ?>
 
     </table>
   </div>
@@ -50,4 +50,3 @@
 </div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
-
